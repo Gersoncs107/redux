@@ -1,5 +1,6 @@
 import { act, StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { createStore } from 'redux'
 import './index.css'
 import App from './App.jsx'
 
