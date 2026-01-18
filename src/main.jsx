@@ -3,14 +3,17 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
-const counterReduce = (state, action) => {
-  if (action.type === 'INCREMENT') {
-    return state + 1
+const counterReducer = (state = 0, action) => {
+  switch (action.type) {
+    case 'INCREMENT':
+      return state + 1
+    case 'DECREMENT':
+      return state - 1
+    case 'RESET':
+      return 0
+    default:
+      return state
   }
-  if (action.type === 'DECREMENT') {
-    return state - 1
-  }
-  return state
 }
 
 createRoot(document.getElementById('root')).render(
