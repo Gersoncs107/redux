@@ -1,8 +1,5 @@
-import { act, StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import ReactDOM from 'react-dom/client'
 import { createStore } from 'redux'
-import './index.css'
-import App from './App.jsx'
 
 const counterReducer = (state = 0, action) => {
   switch (action.type) {
@@ -19,19 +16,28 @@ const counterReducer = (state = 0, action) => {
 
 const store = createStore(counterReducer)
 
-store.subscribe(() => {
-  const storeNow = store.getState()
-  console.log(storeNow)
-})
+const App = () => {
+  return (
+    <div>
+      <div>{store.getState()}</div>
+      <button onClick={() => store.dispatch({ type: 'INCREMENT' })}>
+        plus
+      </button>
+      <button onClick={() => store.dispatch({ type: 'DECREMENT' })}>
+        minus
+      </button>
+      <button onClick={() => store.dispatch({ type: 'ZERO' })}>
+        zero
+      </button>
+    </div>
+  )
+}
 
-store.dispatch({ type: 'INCREMENT' })
-store.dispatch({ type: 'INCREMENT' })
-store.dispatch({ type: 'INCREMENT' })
-store.dispatch({ type: 'ZERO' })
-store.dispatch({ type: 'DECREMENT' })
+const root = ReactDOM.createRoot(document.getElementById('root'))
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+const renderApp = () => {
+  root.render(<App />)
+}
+
+renderApp()
+store.subscribe(renderApp)
