@@ -11,7 +11,7 @@ const noteReducer = (state = [], action) => {
   }
 }
 
-const store = createStore(counterReducer)
+const store = createStore(noteReducer)
 
 const App = () => {
   return (
