@@ -1,14 +1,11 @@
 import ReactDOM from 'react-dom/client'
 import { createStore } from 'redux'
 
-const counterReducer = (state = 0, action) => {
+const noteReducer = (state = [], action) => {
   switch (action.type) {
-    case 'INCREMENT':
-      return state + 1
-    case 'DECREMENT':
-      return state - 1
-    case 'ZERO':
-      return 0
+    case 'NEW_NOTE':
+      state.push(action.payload)
+      return state
     default:
       return state
   }
