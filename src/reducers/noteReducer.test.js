@@ -16,8 +16,9 @@ describe('noteReducer', () => {
 
     deepFreeze(state)
     const newState = noteReducer(state, action)
-
+    
     expect(newState).toHaveLength(1)
     expect(newState).toContainEqual(action.payload)
+    
   })
 })
