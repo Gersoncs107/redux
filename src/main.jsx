@@ -19,6 +19,13 @@ const addNote = event => {
     })
   }
 
+  const toggleImportance = id => {
+    store.dispatch({
+      type: 'TOGGLE_IMPORTANCE',
+      payload: { id }
+    })
+  }
+
 store.dispatch({
   type: 'NEW_NOTE',
   payload: {
