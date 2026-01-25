@@ -3,6 +3,21 @@ import { createStore } from 'redux'
 import noteReducer from './reducers/noteReducer.js'
 
 const store = createStore(noteReducer)
+const generateId = () => (100000 * Math.random()).toFixed(0)
+
+const addNote = event => {
+    event.preventDefault()
+    const content = event.target.note.value
+    event.target.note.value = ''
+    store.dispatch({
+      type: 'NEW_NOTE',
+      payload: {
+        content,
+        important: false,
+        id: generateId()
+      }
+    })
+  }
 
 store.dispatch({
   type: 'NEW_NOTE',
