@@ -3,6 +3,7 @@ import { createStore,combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 
 import App from './App'
+import filterReducer from './reducers/filterReducer'
 import noteReducer from './reducers/noteReducer'
 
 const store = createStore(noteReducer)
