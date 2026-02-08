@@ -3,23 +3,26 @@ import { describe, expect, test } from 'vitest'
 import noteReducer from './noteReducer'
 
 describe('noteReducer', () => {
+
   test('returns new state with action notes/createNote', () => {
     const state = []
     const action = {
+
       type: 'notes/createNote',
       payload: 'the app state is in redux store'
-      }
     }
 
     deepFreeze(state)
     const newState = noteReducer(state, action)
-    
-    expect(newState).toHaveLength(1)
-    expect(newState.map(note => note.content)).toContainEqual(action.payload)
-    
-  })
 
-  test('returns new state with action TOGGLE_IMPORTANCE', () => {
+    expect(newState).toHaveLength(1)
+
+    expect(newState.map(note => note.content)).toContainEqual(action.payload)
+  })
+})
+
+
+test('returns new state with action notes/toggleImportanceOf', () => {
   const state = [
     {
       content: 'the app state is in redux store',
@@ -34,10 +37,9 @@ describe('noteReducer', () => {
   ]
 
   const action = {
-    type: 'TOGGLE_IMPORTANCE',
-    payload: {
-      id: 2
-    }
+
+    type: 'notes/toggleImportanceOf',
+    payload: 2
   }
 
   deepFreeze(state)
@@ -52,5 +54,4 @@ describe('noteReducer', () => {
     important: true,
     id: 2
   })
-})
 })
