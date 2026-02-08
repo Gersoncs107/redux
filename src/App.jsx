@@ -1,11 +1,18 @@
-import ReactDOM from 'react-dom/client'
-import { Provider } from 'react-redux'
+import NoteForm from './components/NoteForm'
+import Notes from './components/Notes'
+import VisibilityFilter from './components/VisibilityFilter'
 
-import App from './App'
-import store from './store'
+const App = () => {
+    const filterSelected = (value) => {
+    console.log(value)
+  }
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <Provider store={store}>
-    <App />
-  </Provider>
-)
+  return (
+    <div>
+      <NoteForm />
+      <VisibilityFilter/>
+      <Notes />
+    </div>
+  )
+}
+export default App
