@@ -3,7 +3,7 @@ import { describe, expect, test } from 'vitest'
 import noteReducer from './noteReducer'
 
 describe('noteReducer', () => {
-  test('returns new state with action NEW_NOTE', () => {
+  test('returns new state with action notes/createNote', () => {
     const state = []
     const action = {
       type: 'NEW_NOTE',
