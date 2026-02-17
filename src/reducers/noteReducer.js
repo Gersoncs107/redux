@@ -35,6 +35,15 @@ const noteSlice = createSlice({
   },
 })
 
+const { setNotes } = noteSlice.actions
 
-export const { createNote, toggleImportanceOf, setNotes } = noteSlice.actions
+export const initializeNotes = () => {
+  return async (dispatch) => {
+    const notes = await noteService.getAll()
+    dispatch(setNotes(notes))
+  }
+}
+
+export const { createNote, toggleImportanceOf } = noteSlice.actions
+
 export default noteSlice.reducer
