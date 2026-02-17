@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { current } from '@reduxjs/toolkit'
+import noteService from '../services/notes'
 
 const initialState = []
 
