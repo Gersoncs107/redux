@@ -14,6 +14,11 @@
       "id": "67f7",
       "content": "new note added",
       "important": false
+    },
+    {
+      "id": "fc5f",
+      "content": "testing new note with Redux Thunk",
+      "important": false
     }
   ]
 }
